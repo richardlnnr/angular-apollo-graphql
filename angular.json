@@ -3,5 +3,109 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "apollo-graphql": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/apollo-graphql",
+      "sourceRoot": "projects/apollo-graphql/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apollo-graphql",
+            "index": "projects/apollo-graphql/src/index.html",
+            "main": "projects/apollo-graphql/src/main.ts",
+            "polyfills": "projects/apollo-graphql/src/polyfills.ts",
+            "tsConfig": "projects/apollo-graphql/tsconfig.app.json",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/apollo-graphql/src/favicon.ico",
+              "projects/apollo-graphql/src/assets"
+            ],
+            "styles": [
+              "projects/apollo-graphql/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/apollo-graphql/src/environments/environment.ts",
+                  "with": "projects/apollo-graphql/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "apollo-graphql:build:production"
+            },
+            "development": {
+              "browserTarget": "apollo-graphql:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "apollo-graphql:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/apollo-graphql/src/test.ts",
+            "polyfills": "projects/apollo-graphql/src/polyfills.ts",
+            "tsConfig": "projects/apollo-graphql/tsconfig.spec.json",
+            "karmaConfig": "projects/apollo-graphql/karma.conf.js",
+            "inlineStyleLanguage": "scss",
+            "assets": [
+              "projects/apollo-graphql/src/favicon.ico",
+              "projects/apollo-graphql/src/assets"
+            ],
+            "styles": [
+              "projects/apollo-graphql/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "apollo-graphql"
 }

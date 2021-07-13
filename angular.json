@@ -31,6 +31,7 @@
               "projects/apollo-graphql/src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "projects/apollo-graphql/src/styles.scss"
             ],
             "scripts": []
@@ -99,13 +100,26 @@
               "projects/apollo-graphql/src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "projects/apollo-graphql/src/styles.scss"
             ],
             "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/apollo-graphql/**/*.ts",
+              "projects/apollo-graphql/**/*.html"
+            ]
           }
         }
       }
     }
   },
-  "defaultProject": "apollo-graphql"
+  "defaultProject": "apollo-graphql",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }

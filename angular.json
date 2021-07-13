@@ -105,9 +105,21 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/apollo-graphql/**/*.ts",
+              "projects/apollo-graphql/**/*.html"
+            ]
+          }
         }
       }
     }
   },
-  "defaultProject": "apollo-graphql"
+  "defaultProject": "apollo-graphql",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }

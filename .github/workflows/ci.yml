@@ -26,6 +26,10 @@ jobs:
       - name: Build project
         run: |
           npm run build
+
+      - name: Lint project
+        run: |
+          npm run lint
           
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.4

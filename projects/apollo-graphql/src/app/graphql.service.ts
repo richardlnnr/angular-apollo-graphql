@@ -42,20 +42,7 @@ export class GraphqlService {
     });
   }
 
-  getPokemonsByIdQuery(
-    id: string,
-    fetchPolicy: FetchPolicy = 'cache-first'
-  ): Observable<ApolloQueryResult<PokemonResponse>> {
-    return this.apollo.query<PokemonResponse>({
-      query: this.pokemonByIdQuery,
-      variables: {
-        id,
-      },
-      fetchPolicy
-    });
-  }
-
-  getPokemonsByIdWatchQuery(
+  getPokemonsById(
     id: string,
     fetchPolicy: WatchQueryFetchPolicy = 'cache-first'
   ): QueryRef<PokemonResponse, EmptyObject> {
@@ -64,11 +51,12 @@ export class GraphqlService {
       variables: {
         id,
       },
-      fetchPolicy
+      fetchPolicy,
+      useInitialLoading: true
     });
   }
 
-  fetchMore(pokemonByIdQuery: QueryRef<PokemonResponse, EmptyObject>, id: string) {
+  fetchMore(pokemonByIdQuery: QueryRef<PokemonResponse, EmptyObject>, id: string): void {
     pokemonByIdQuery.fetchMore({
         variables: {
           id

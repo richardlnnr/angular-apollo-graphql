@@ -1,0 +1,11 @@
+.grid {
+    margin: 32px;
+
+    &__tile {
+        background-color: #fff;
+    }
+
+    &__tile-header {
+        justify-content: space-between;
+    }
+}

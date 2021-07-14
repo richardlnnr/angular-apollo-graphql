@@ -1,1 +1,37 @@
-<p>pokemons works!</p>
+<mat-grid-list class="grid" cols="2" rowHeight="350px" gutterSize="32px">
+  <mat-grid-tile class="grid__tile">
+    <mat-grid-tile-header class="grid__tile-header">
+      <h3>cache-first without fetchMore method</h3>
+      <button mat-raised-button (click)="showFirst=!showFirst">{{showFirst ? "Destroy" : "Create"}}</button>
+    </mat-grid-tile-header>
+    <app-pokemon *ngIf="showFirst"></app-pokemon>
+    <mat-grid-tile-footer></mat-grid-tile-footer>
+  </mat-grid-tile>
+
+  <mat-grid-tile class="grid__tile">
+    <mat-grid-tile-header class="grid__tile-header">
+        <h3>cache-and-network without fetchMore method</h3>
+        <button mat-raised-button (click)="showSecond=!showSecond">{{showSecond ? "Destroy" : "Create"}}</button>
+    </mat-grid-tile-header>
+    <app-pokemon *ngIf="showSecond" fetchPolicy="cache-and-network"></app-pokemon>
+    <mat-grid-tile-footer></mat-grid-tile-footer>
+  </mat-grid-tile>
+
+  <mat-grid-tile class="grid__tile">
+    <mat-grid-tile-header class="grid__tile-header">
+      <h3>cache-first with fetchMore method</h3>
+      <button mat-raised-button (click)="showThird=!showThird">{{showThird ? "Destroy" : "Create"}}</button>
+    </mat-grid-tile-header>
+    <app-pokemon *ngIf="showThird" [useLoadMore]="true"></app-pokemon>
+    <mat-grid-tile-footer></mat-grid-tile-footer>
+  </mat-grid-tile>
+
+  <mat-grid-tile class="grid__tile">
+    <mat-grid-tile-header class="grid__tile-header">
+        <h3>cache-and-network with fetchMore method</h3>
+        <button mat-raised-button (click)="showFourth=!showFourth">{{showFourth ? "Destroy" : "Create"}}</button>
+    </mat-grid-tile-header>
+    <app-pokemon *ngIf="showFourth" fetchPolicy="cache-and-network" [useLoadMore]="true"></app-pokemon>
+    <mat-grid-tile-footer></mat-grid-tile-footer>
+  </mat-grid-tile>
+</mat-grid-list>

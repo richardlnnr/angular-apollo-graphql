@@ -3,15 +3,18 @@ import { CommonModule } from '@angular/common';
 
 import { PokemonsRoutingModule } from './pokemons-routing.module';
 import { PokemonsComponent } from './pokemons.component';
-
+import { PokemonModule } from '../component/pokemon/pokemon.module';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
-  declarations: [
-    PokemonsComponent
-  ],
+  declarations: [PokemonsComponent],
   imports: [
     CommonModule,
-    PokemonsRoutingModule
-  ]
+    PokemonsRoutingModule,
+    PokemonModule,
+    MatGridListModule,
+    MatButtonModule,
+  ],
 })
-export class PokemonsModule { }
+export class PokemonsModule {}

@@ -1,0 +1,2 @@
+<app-pokemon-card *ngIf="!loading" [pokemon]="currentPokemon" (previous)="previousPokemon()" (next)="nextPokemon()"></app-pokemon-card>
+<mat-spinner *ngIf="loading"></mat-spinner>

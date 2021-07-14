@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-pokemons',
@@ -6,5 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./pokemons.component.scss']
 })
 export class PokemonsComponent {
+
+  showFirst = true;
+  showSecond = false;
+  showThird = false;
+  showFourth = false;
 
 }

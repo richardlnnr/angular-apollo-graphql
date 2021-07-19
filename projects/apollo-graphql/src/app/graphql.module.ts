@@ -7,7 +7,15 @@ const uri = 'https://graphql-pokemon2.vercel.app';
 export function createApollo(httpLink: HttpLink): ApolloClientOptions<any> {
   return {
     link: httpLink.create({uri}),
-    cache: new InMemoryCache(),
+    cache: new InMemoryCache({
+      // typePolicies: {
+      //   Query: {
+      //     fields: {
+      //       users: offsetLimitPagination(),
+      //     },
+      //   },
+      // },
+    }),
   };
 }
 
